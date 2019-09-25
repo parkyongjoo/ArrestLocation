@@ -18,7 +18,7 @@ p = JSON.parse(j)
 x = p["documents"][1]["x"]
 y = p["documents"][1]["y"]
 =#
-
+#=
 kn = arrest[arrest[!, :sido] .== "경남", :]
 juso = kn[!,[:ems_sn,:address_happen_si,:address_happen_gu,:address_happen_dong,
     :address_happen_bunji,:address_happen_else]]
@@ -137,13 +137,7 @@ detailknxy = hcat(detailkn, addressxy)
 
 CSV.write("detailknxy.csv", detailknxy)
 
-
-
-
-
-
-
-
+=#
 
 ## 부산 만들기
 
