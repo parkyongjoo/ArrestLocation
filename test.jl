@@ -1029,10 +1029,11 @@ gndistnomiss[!,:district] = map(x->
     gndistnomiss[!,:ADM_DR_CD]
 )
 
+
 show(countmap(gndistnomiss[!,:district]))
 
 model = glm(@formula(survadmfinal ~ district + age),
-           gndistnomiss, Binomial(), LogitLink())
+           gnredist, Binomial(), LogitLink())
 conf = convert(DataFrame, exp.(confint(model)))
 coeff = DataFrame(OR = exp.(coef(model)))
 coeffnames = DataFrame(names = coefnames(model))
@@ -1041,3 +1042,5 @@ result = rename(hcat(coeffnames, coeff, conf), Dict(:x1 => Symbol("2.5%"),
 )
 showall(result)
 
+CSV.write("gnredist.csv", gndistnomiss)
+gnredist = CSV.read("gnredist.csv", header = 1)
