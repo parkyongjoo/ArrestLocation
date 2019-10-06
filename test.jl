@@ -1044,3 +1044,6 @@ showall(result)
 
 CSV.write("gnredist.csv", gndistnomiss)
 gnredist = CSV.read("gnredist.csv", header = 1)
+
+CSV.write("result.csv", result)
+
